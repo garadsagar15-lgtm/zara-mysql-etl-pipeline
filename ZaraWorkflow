@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Zara MySQL ETL Pipeline Workflow</title>
+  <desc id="desc">Workflow of the Zara semicolon-delimited CSV load into MySQL, followed by twelve SQL extraction and analysis operations.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#101827"/><stop offset="1" stop-color="#17243a"/></linearGradient>
+    <linearGradient id="accent" x1="0" x2="1"><stop stop-color="#ef4444"/><stop offset="1" stop-color="#fb923c"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity=".28"/></filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7c91ad"/></marker>
+    <style>
+      text{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#eef4ff}.muted{fill:#9db0ca}.small{font-size:16px}.body{font-size:19px}.label{font-size:15px;font-weight:700;letter-spacing:1.5px}.card{fill:#1d2b40;stroke:#334762;stroke-width:1.5}.inner{fill:#152238;stroke:#324966;stroke-width:1}.number{fill:#f7a66a;font-weight:800;font-size:17px}.connector{stroke:#7c91ad;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1600" height="10" fill="url(#accent)"/>
+  <text x="90" y="88" class="label" fill="#ff9d70">DATA ENGINEERING • PORTFOLIO PROJECT</text>
+  <text x="90" y="150" font-size="44" font-weight="800">Zara MySQL ETL Pipeline</text>
+  <text x="90" y="190" class="body muted">From semicolon-delimited product data to a MySQL table and 12 reusable SQL outputs</text>
+  <rect x="1285" y="66" width="225" height="48" rx="24" fill="#263751" stroke="#405773"/>
+  <circle cx="1312" cy="90" r="7" fill="#4ade80"/><text x="1330" y="96" class="small" font-weight="700">CSV → MySQL → SQL</text>
+
+  <!-- Main ETL track -->
+  <text x="90" y="250" class="label muted">01 / EXTRACT + LOAD</text>
+  <rect x="90" y="275" width="300" height="205" rx="20" class="card" filter="url(#shadow)"/>
+  <rect x="90" y="275" width="300" height="7" rx="4" fill="#60a5fa"/>
+  <text x="120" y="325" font-size="25" font-weight="750">Zara CSV</text>
+  <text x="120" y="363" class="body muted">zara.csv</text>
+  <text x="120" y="398" class="small">• Semicolon delimiter (;)</text>
+  <text x="120" y="428" class="small">• Product catalog snapshot</text>
+  <text x="120" y="458" class="small">• 16 source fields</text>
+
+  <path d="M400 377H447" class="connector"/>
+  <rect x="465" y="275" width="340" height="205" rx="20" class="card" filter="url(#shadow)"/>
+  <rect x="465" y="275" width="340" height="7" rx="4" fill="#a78bfa"/>
+  <text x="495" y="325" font-size="25" font-weight="750">Python ETL</text>
+  <text x="495" y="363" class="body muted">Extract • clean • convert</text>
+  <text x="495" y="398" class="small">• csv.DictReader reads rows</text>
+  <text x="495" y="428" class="small">• Empty cells → NULL</text>
+  <text x="495" y="458" class="small">• IDs, sales, price, timestamp parsed</text>
+
+  <path d="M815 377H862" class="connector"/>
+  <rect x="880" y="275" width="300" height="205" rx="20" class="card" filter="url(#shadow)"/>
+  <rect x="880" y="275" width="300" height="7" rx="4" fill="#34d399"/>
+  <text x="910" y="325" font-size="25" font-weight="750">MySQL</text>
+  <text x="910" y="363" class="body muted">Database: ETl</text>
+  <text x="910" y="398" class="small">• Create database if needed</text>
+  <text x="910" y="428" class="small">• Create Zara_Sales table</text>
+  <text x="910" y="458" class="small">• Product_ID primary key</text>
+
+  <path d="M1190 377H1237" class="connector"/>
+  <rect x="1255" y="275" width="255" height="205" rx="20" class="card" filter="url(#shadow)"/>
+  <rect x="1255" y="275" width="255" height="7" rx="4" fill="#fbbf24"/>
+  <text x="1285" y="325" font-size="25" font-weight="750">Upsert</text>
+  <text x="1285" y="363" class="body muted">executemany()</text>
+  <text x="1285" y="398" class="small">• Bulk insert rows</text>
+  <text x="1285" y="428" class="small">• Duplicate IDs updated</text>
+  <text x="1285" y="458" class="small">• Commit transaction</text>
+
+  <!-- SQL transformation bank -->
+  <path d="M1382 490V537H802" class="connector"/>
+  <text x="90" y="560" class="label muted">02 / TRANSFORM + ANALYZE • 12 MYSQL QUERIES</text>
+  <rect x="90" y="585" width="1420" height="255" rx="22" class="card" filter="url(#shadow)"/>
+  <text x="125" y="630" font-size="25" font-weight="750">Zara_Sales</text>
+  <text x="125" y="661" class="small muted">Source table for each query</text>
+  <line x1="390" y1="610" x2="390" y2="810" stroke="#344a65" stroke-width="1.5"/>
+  <text x="430" y="630" class="label" fill="#f7a66a">FILTER + SELECT</text>
+  <text x="430" y="670" class="small">01  Full copy</text><text x="430" y="702" class="small">02  Sales volume &gt; 2000</text>
+  <text x="430" y="734" class="small">03  Selected columns</text><text x="430" y="766" class="small">04  DISTINCT terms</text>
+  <text x="430" y="798" class="small">09  Price BETWEEN 30–100</text>
+  <line x1="770" y1="610" x2="770" y2="810" stroke="#344a65" stroke-width="1.5"/>
+  <text x="810" y="630" class="label" fill="#86efac">GROUP + SORT</text>
+  <text x="810" y="670" class="small">05  Sort by sales volume</text><text x="810" y="702" class="small">06  Product count by term</text>
+  <text x="810" y="734" class="small">07  Average price + sales</text><text x="810" y="766" class="small">08  HAVING avg sales &gt; 1800</text>
+  <line x1="1150" y1="610" x2="1150" y2="810" stroke="#344a65" stroke-width="1.5"/>
+  <text x="1190" y="630" class="label" fill="#93c5fd">MATCH + CLASSIFY</text>
+  <text x="1190" y="670" class="small">10  Terms IN jackets / shoes</text><text x="1190" y="702" class="small">11  Name LIKE “%JACKET%”</text>
+  <text x="1190" y="734" class="small">12  CASE sales bands</text>
+  <rect x="125" y="770" width="225" height="42" rx="12" fill="#263751"/>
+  <text x="142" y="797" class="small" font-weight="700">Creates 12 Zara_Backup_*</text>
+
+  <!-- Final result -->
+  <path d="M800 846V878" class="connector"/>
+  <rect x="90" y="890" width="1420" height="65" rx="18" fill="#182a3a" stroke="#2e5b50" stroke-width="1.5"/>
+  <circle cx="130" cy="922" r="15" fill="#34d399"/><path d="M122 922l6 6 11-13" fill="none" stroke="#10251f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="165" y="930" font-size="20" font-weight="750">LOAD COMPLETE</text>
+  <text x="410" y="930" class="body muted">Commit → inspect tables → close cursor and MySQL connection</text>
+  <text x="1305" y="930" class="small" fill="#a8bbd3">Python • MySQL</text>
+</svg>
