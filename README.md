@@ -35,8 +35,8 @@ The pipeline uses `mysql-connector-python` to connect to MySQL, creates the `ETl
 ## Screenshots
 
 ### ETL workflow
-
-<img src="zara_mysql_etl_workflow.svg" alt="Workflow showing Zara CSV extraction, Python cleaning, MySQL loading, and SQL analysis" width="100%">
+[
+<img src="zara_mysql_etl_workflow.svg" alt="Workflow showing Zara CSV extraction, Python cleaning, MySQL loading, and SQL analysis" width="100%">](https://github.com/garadsagar15-lgtm/zara-mysql-etl-pipeline/blob/main/Zara.png)
 
 The image file is [`zara_mysql_etl_workflow.svg`](zara_mysql_etl_workflow.svg). GitHub renders it directly from the repository.
 
